@@ -1,21 +1,67 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
-import Image from "next/image"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
+  {
+    title: "Worddare",
+    description: "A CRM to Summarize Daily Emails",
+    image: "worddare.png",
+    link: "https://worddare.vercel.app/",
+    github: "#",
+    tags: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "ShadCN",
+      "NextAuth",
+      "OpenAI",
+      "Gmail API",
+    ],
+  },
+   {
+    title: "Gumdupe PDF",
+    description: "Extract data from PDFs with AI precision",
+    image: "gumdupe.png",
+    link: "https://gumdupe-pdf.vercel.app/",
+    github: "#",
+    tags: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "ShadCN",
+      "Clerk",
+      "OpenAI",
+    ],
+  },
+  {
+    title: "Loudable",
+    description: "Turn customer calls into proof",
+    image: "loudbale.png",
+    link: "https://loudable-saas.vercel.app/",
+    github: "#",
+    tags: ["TypeScript", "React", "Next.js", "ShadCN", "OpenAI"],
+  },
   {
     title: "D2 Residency",
     description: "A CRM to Track Room Bookings and Revenue",
     image: "d2-residency`.png",
     link: "https://d2-residency-ss9p.vercel.app",
     github: "#",
-    tags: ["TypeScript", "React", "Next.js", "ShadCN", "Prisma ORM", "Supabase"],
+    tags: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "ShadCN",
+      "Prisma ORM",
+      "Supabase",
+    ],
   },
   {
     title: "Learning Management System (Alt: Skill)",
@@ -43,10 +89,10 @@ const projects = [
     github: "#",
     tags: ["Next.js", "ShadCN", "TypeScript", "FireStore"],
   },
-]
+];
 
 export default function Projects() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section id="projects" className="py-20 bg-gray-50">
@@ -78,7 +124,7 @@ export default function Projects() {
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       fill
-                      className={`object-cover transition-transform duration-500 ${
+                      className={`object-contain transition-transform duration-500 ${
                         hoveredIndex === index ? "scale-110" : "scale-100"
                       }`}
                     />
@@ -100,14 +146,26 @@ export default function Projects() {
 
                   <CardFooter className="px-6 py-4 border-t bg-gray-50 flex justify-between">
                     <Button variant="outline" size="sm" asChild>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="h-4 w-4 mr-2" />
                         Code
                       </a>
                     </Button>
 
-                    <Button className="bg-emerald-600 hover:bg-emerald-700" size="sm" asChild>
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      className="bg-emerald-600 hover:bg-emerald-700"
+                      size="sm"
+                      asChild
+                    >
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Live Demo
                       </a>
@@ -119,15 +177,19 @@ export default function Projects() {
           </div>
 
           <div className="text-center mt-10">
-            <h3 className="text-xl font-bold mb-4">Open Source Contributions</h3>
+            <h3 className="text-xl font-bold mb-4">
+              Open Source Contributions
+            </h3>
             <Card className="max-w-2xl mx-auto">
               <CardContent className="p-6">
                 <ul className="list-disc pl-5 space-y-2">
                   <li className="text-gray-700">
-                    Contributed to Lightdash Open-source, by adding new features mentioned in the issues
+                    Contributed to Lightdash Open-source, by adding new features
+                    mentioned in the issues
                   </li>
                   <li className="text-gray-700">
-                    Fixed bugs in Lightdash project and collaborated with the team regarding improvements
+                    Fixed bugs in Lightdash project and collaborated with the
+                    team regarding improvements
                   </li>
                 </ul>
               </CardContent>
@@ -136,5 +198,5 @@ export default function Projects() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
